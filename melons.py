@@ -34,7 +34,9 @@ class AbstractMelonOrder:
         self.shipped = True
     
 
-
+class GovernmentMelonOrder(AbstractMelonOrder):
+    def __init__(self, species, qty, order_type):
+        super().__init__(species, qty, order_type, 0)
 
     
 
@@ -45,25 +47,6 @@ class DomesticMelonOrder(AbstractMelonOrder):
         super().__init__(species, qty, "domestic", 0.08)
         # """Initialize melon order attributes."""
          
-         # self.species = species
-        # self.qty = qty
-        # self.shipped = False
-        # self.order_type = "domestic"
-        # self.tax = 0.08
-
-    # def get_total(self):
-    #     """Calculate price, including tax."""
-
-    #     base_price = 5
-    #     total = (1 + self.tax) * self.qty * base_price
-
-    #     return total
-
-    # def mark_shipped(self):
-    #     """Record the fact than an order has been shipped."""
-
-    #     self.shipped = True
-
 
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
@@ -73,9 +56,7 @@ class InternationalMelonOrder(AbstractMelonOrder):
         super().__init__(species, qty, "international", 0.17 )
         self.country_code = country_code
 
-        # self.species = species
-        # self.qty = qty
-        
+  
 
 def get_country_code(self):
         """Return the country code."""
@@ -83,33 +64,7 @@ def get_country_code(self):
         return self.country_code
 
         """Initialize melon order attributes."""
-        # super().__init__(order_type, "International")
-        # super().__init__(tax, 0.17)
-
-    # def __init__(self, species, qty, country_code):
-    #     """Initialize melon order attributes."""
-
-    #     self.species = species
-    #     self.qty = qty
-    #     self.country_code = country_code
-    #     self.shipped = False
-    #     self.order_type = "international"
-    #     self.tax = 0.17
-
-    # def get_total(self):
-    #     """Calculate price, including tax."""
-
-    #     base_price = 5
-    #     total = (1 + self.tax) * self.qty * base_price
-
-    #     return total
-
-    # def mark_shipped(self):
-    #     """Record the fact than an order has been shipped."""
-
-    #     self.shipped = True
-
     
 
 
-order0 = InternationalMelonOrder("Christmas melon", 6, "AUS")
+order0 = GovernmentMelonOrder("Christmas melon", 6, "AUS")
