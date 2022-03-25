@@ -35,10 +35,15 @@ class AbstractMelonOrder:
     
 
 class GovernmentMelonOrder(AbstractMelonOrder):
-    def __init__(self, species, qty, order_type):
-        super().__init__(species, qty, order_type, 0)
-
     
+    def __init__(self, species, qty):
+        super().__init__(species, qty, "government", 0.0)
+        self.passed_inspection = False
+    
+    
+    def mark_inspection(self, passed):
+        self.passed_inspection = passed
+
 
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
@@ -67,4 +72,5 @@ def get_country_code(self):
     
 
 
-order0 = GovernmentMelonOrder("Christmas melon", 6, "AUS")
+order0 = GovernmentMelonOrder("watermelon", 6)
+
